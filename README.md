@@ -1,5 +1,11 @@
 # COMPLETE DOCUMENTATION FOR BOOTING PROCESS - personal usage
 
+
+> **IMPORTANT**\
+> This is a documentation for my personal use 
+
+
+
 ## Checking the Bitlocker Status
 Type the following in command prompt
 ```
@@ -21,7 +27,8 @@ $ list disk
 $ select disk <no_of_disk>
 $ clean
 $ create partition primary
-$ format fs=fat32 quick                 #if the storage is <=32GB
+$ format fs=fat32 quick                 # if the storage is <=32GB
+$ format fs=ntfs quick                  # if the storage is >32GB
 ```
 <br>
 
@@ -40,3 +47,25 @@ $ sudo mkfs.vfat -F 32 /dev/sdX1 # create partition
 $ sudo dd if=/path/to/backup.img of=/dev/sdX bs=4M status=progress
 $ lsblk
 ```
+<br>
+
+## SETEDIT Permission Grant
+Connect your mobile phone using USB cable and Go to 
+**`Developers Option -> Enable USB Debugging`**
+
+1. Open **`command prompt`** or **`terminal`**
+2. Type the following commands
+```
+$ adb devices -l
+$ adb shell
+$ pm grant by4a.setedit22 android.permission.WRITE_SECURE_SETTINGS
+```
+
+* [x] ref: [ADB Documentation][def]
+
+[def]: https://developer.android.com/tools/adb
+<!-- [def1]: <link_2> -->
+
+
+<br>
+
